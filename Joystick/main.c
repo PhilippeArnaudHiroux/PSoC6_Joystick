@@ -14,6 +14,8 @@
  */
 
 void levelOne();
+void levelTwo();
+
 int main(void)
 {
     cybsp_init();
@@ -31,6 +33,7 @@ int main(void)
 	printf("x = %d - y = %d\r\n", x, y);
 
 	levelOne();
+	levelTwo();
 	for (;;)
     {}
 }
@@ -49,4 +52,27 @@ void levelOne()
 	GUI_DrawLine(2, 95, 2, 145);
 	GUI_SetColor(GUI_GREEN);
 	GUI_DrawLine(318, 95, 318, 145);
+
+	cyhal_system_delay_ms(LEVEL_DELAY);
+	GUI_Clear();
+}
+
+void levelTwo()
+{
+	GUI_SetColor(GUI_BLUE);
+	GUI_SetFont(GUI_FONT_32B_ASCII);
+	GUI_DispStringAt("Level 2 ", 100, 10);
+	cyhal_system_delay_ms(LEVEL_DELAY);
+	GUI_Clear();
+
+	GUI_DrawLine(2, 30, 2, 70);
+	GUI_DrawLine(0, 30, 180, 30);
+	GUI_DrawLine(0, 70, 140, 70);
+	GUI_DrawLine(180, 30, 180, 170);
+	GUI_DrawLine(140, 70, 140, 210);
+	GUI_DrawLine(180, 170, 320, 170);
+	GUI_DrawLine(140, 210, 320, 210);
+	GUI_SetColor(GUI_GREEN);
+	GUI_DrawLine(318, 170, 318, 210);
+
 }
