@@ -15,6 +15,7 @@
 
 void levelOne();
 void levelTwo();
+void levelThree();
 
 int main(void)
 {
@@ -34,6 +35,8 @@ int main(void)
 
 	levelOne();
 	levelTwo();
+	levelThree();
+
 	for (;;)
     {}
 }
@@ -65,6 +68,7 @@ void levelTwo()
 	cyhal_system_delay_ms(LEVEL_DELAY);
 	GUI_Clear();
 
+	GUI_SetPenSize(5);
 	GUI_DrawLine(2, 30, 2, 70);
 	GUI_DrawLine(0, 30, 180, 30);
 	GUI_DrawLine(0, 70, 140, 70);
@@ -75,4 +79,32 @@ void levelTwo()
 	GUI_SetColor(GUI_GREEN);
 	GUI_DrawLine(318, 170, 318, 210);
 
+	cyhal_system_delay_ms(LEVEL_DELAY);
+	GUI_Clear();
+}
+
+void levelThree()
+{
+	GUI_SetColor(GUI_BLUE);
+	GUI_SetFont(GUI_FONT_32B_ASCII);
+	GUI_DispStringAt("Level 3 ", 100, 10);
+	cyhal_system_delay_ms(LEVEL_DELAY);
+	GUI_Clear();
+
+	GUI_SetPenSize(5);
+	GUI_DrawLine(2, 30, 2, 70);
+	GUI_DrawLine(0, 30, 320, 30);
+	GUI_DrawLine(0, 70, 280, 70);
+
+	GUI_DrawLine(318, 30, 318, 110);
+	GUI_DrawLine(2, 130, 2, 210);
+
+	GUI_DrawLine(318, 110, 40, 170);
+	GUI_DrawLine(2, 130, 280, 70);
+
+	GUI_DrawLine(40, 170, 320, 170);
+	GUI_DrawLine(0, 210, 320, 210);
+
+	GUI_SetColor(GUI_GREEN);
+	GUI_DrawLine(318, 170, 318, 210);
 }
