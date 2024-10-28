@@ -18,6 +18,7 @@
 
 void levelOne()
 {
+	GUI_Clear();
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
 	GUI_DispStringAt("Level 1 ", 100, 10);
@@ -30,11 +31,11 @@ void levelOne()
 	GUI_DrawLine(2, 95, 2, 145);
 	GUI_SetColor(COLOR_FINISH);
 	GUI_DrawLine(318, 95, 318, 145);
-	//cyhal_system_delay_ms(LEVEL_DELAY);
 }
 
 void levelTwo()
 {
+	GUI_Clear();
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
 	GUI_DispStringAt("Level 2 ", 100, 10);
@@ -51,12 +52,11 @@ void levelTwo()
 	GUI_DrawLine(140, 210, 320, 210);
 	GUI_SetColor(COLOR_FINISH);
 	GUI_DrawLine(318, 170, 318, 210);
-	cyhal_system_delay_ms(LEVEL_DELAY);
-	GUI_Clear();
 }
 
 void levelThree()
 {
+	GUI_Clear();
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
 	GUI_DispStringAt("Level 3 ", 100, 10);
@@ -81,6 +81,7 @@ void levelThree()
 
 void levelFour()
 {
+	GUI_Clear();
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
 	GUI_DispStringAt("Level 4 ", 100, 10);
@@ -108,4 +109,12 @@ void levelFour()
 	GUI_DrawLine(2, 202, 2, 238);
 	cyhal_system_delay_ms(LEVEL_DELAY);
 	GUI_Clear();
+}
+
+void gameOver()
+{
+	GUI_Clear();
+	GUI_SetColor(COLOR_LEVEL);
+	GUI_SetFont(GUI_FONT_32B_ASCII);
+	GUI_DispStringAt("GAME OVER!!!", 100, 10);
 }

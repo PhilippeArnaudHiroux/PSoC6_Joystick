@@ -13,6 +13,7 @@ void levelOne();
 void levelTwo();
 void levelThree();
 void levelFour();
+void gameOver();
 
 //Include from adc.c
 void init_adc(void);
@@ -56,8 +57,9 @@ int main(void)
 	GUI_Init();
 
 	levelOne();
-	draw(10, 125);
+	draw(20, 120);
 	levelTwo();
+	draw(20, 50);
 /*	levelThree();
 	levelFour();
 */
@@ -123,10 +125,8 @@ void draw(int x, int y)
 		}
 		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_RED || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_RED)
 		{
-			printf("Game over!!!\r\n");
+			gameOver();
 			exit(0);
 		}
-
 	}
-
 }
