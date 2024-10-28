@@ -4,6 +4,10 @@
 #include "cy8ckit_028_tft.h"
 #include "GUI.h"
 
+#define CIRCLE_SIZE 4
+#define COLOR_GREEN 2016
+#define COLOR_RED 63488
+
 //Include from level.c
 void levelOne();
 void levelTwo();
@@ -52,7 +56,7 @@ int main(void)
 	GUI_Init();
 
 	levelOne();
-	draw(5, 125);
+	draw(10, 125);
 	levelTwo();
 /*	levelThree();
 	levelFour();
@@ -109,16 +113,20 @@ void draw(int x, int y)
 			y--;
 		}
 
+		GUI_FillCircle(x, y, CIRCLE_SIZE);
 
-
-		GUI_FillCircle(x, y, 4);
-		printf("Color = %u\r\n", GUI_GetPixelIndex(x+5, y));
-
-		if(GUI_GetPixelIndex(x+5, y) == 2016)
+		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_GREEN || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_GREEN || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_GREEN || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_GREEN)
 		{
 			game = true;
 			printf("Done level\r\n");
+			cyhal_system_delay_ms(2000);
 		}
+		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_RED || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_RED)
+		{
+			printf("Game over!!!\r\n");
+			exit(0);
+		}
+
 	}
 
 }
