@@ -17,12 +17,12 @@ void init_adc(void)
 int x_value(void)
 {
 	Cy_SAR_StartConvert(ADC_PDL_HW, CY_SAR_START_CONVERT_SINGLE_SHOT);
-	return Cy_SAR_GetResult32(ADC_PDL_HW, 0);
+	return Cy_SAR_GetResult32(ADC_PDL_HW, 1);
 }
 
 int y_value(void)
 {
 	Cy_SAR_StartConvert(ADC_PDL_HW, CY_SAR_START_CONVERT_SINGLE_SHOT);
-	return Cy_SAR_GetResult32(ADC_PDL_HW, 1);
+	return Cy_SAR_GetResult32(ADC_PDL_HW, 0);
 }
 
