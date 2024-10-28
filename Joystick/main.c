@@ -15,12 +15,12 @@ void init_adc(void);
 int x_value(void);
 int y_value(void);
 
-void draw();
-
+void draw(int x, int y);
+/*
 int x = 100;
 int y = 100;
-
-bool game = false;
+*/
+int game = false;
 
 const mtb_st7789v_pins_t tft_pins =
 {
@@ -37,6 +37,7 @@ const mtb_st7789v_pins_t tft_pins =
 	.dc = CY8CKIT_028_TFT_PIN_DISPLAY_DC,
 	.rst = CY8CKIT_028_TFT_PIN_DISPLAY_RST
 };
+
 int main(void)
 {
     cybsp_init();
@@ -49,61 +50,75 @@ int main(void)
 
 	mtb_st7789v_init8(&tft_pins);
 	GUI_Init();
-/*
+
 	levelOne();
+	draw(5, 125);
 	levelTwo();
-	levelThree();
+/*	levelThree();
 	levelFour();
 */
 
 	for (;;)
     {
-		printf("X = %d - Y = %d\r\n", x_value(), y_value());
-		draw();
+		//printf("X = %d - Y = %d - color %d\r\n", x_value(), y_value());
+
     }
 }
 
-void draw()
+void draw(int x, int y)
 {
 	GUI_SetColor(GUI_BLUE);
-	if(x_value() < -1000) //x right
+	while(game == false)
 	{
-		x++;
-	}
-	else if(x_value() > 1000) //x left
-	{
-		x--;
+		if(x_value() < -1000) //x right
+		{
+			x++;
+		}
+		else if(x_value() > 1000) //x left
+		{
+			x--;
+		}
+
+		if(y_value() < -1000) //y up
+		{
+			y--;
+		}
+		else if(y_value() > 1000)//y down
+		{
+			y++;
+		}
+
+		if(x_value() < -1000 && y_value() < -1000) //Right top
+		{
+			x++;
+			y--;
+		}
+		else if(x_value() < -1000 && y_value() > 1000) //Right bottom
+		{
+			x++;
+			y++;
+		}
+		else if(x_value() > 1000 && y_value() > 1000) //Left bottom
+		{
+			x--;
+			y++;
+		}
+		else if(x_value() > 1000 && y_value() < -1000) //Left top
+		{
+			x--;
+			y--;
+		}
+
+
+
+		GUI_FillCircle(x, y, 4);
+		printf("Color = %u\r\n", GUI_GetPixelIndex(x+5, y));
+
+		if(GUI_GetPixelIndex(x+5, y) == 2016)
+		{
+			game = true;
+			printf("Done level\r\n");
+		}
 	}
 
-	if(y_value() < -1000) //y up
-	{
-		y--;
-	}
-	else if(y_value() > 1000)//y down
-	{
-		y++;
-	}
-
-	if(x_value() < -1000 && y_value() < -1000) //Right top
-	{
-		x++;
-		y--;
-	}
-	else if(x_value() < -1000 && y_value() > 1000) //Right bottom
-	{
-		x++;
-		y++;
-	}
-	else if(x_value() > 1000 && y_value() > 1000) //Left bottom
-	{
-		x--;
-		y++;
-	}
-	else if(x_value() > 1000 && y_value() < -1000) //Left top
-	{
-		x--;
-		y--;
-	}
-
-	GUI_FillCircle(x, y, 5);
 }

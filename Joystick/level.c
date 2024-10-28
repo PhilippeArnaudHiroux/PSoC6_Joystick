@@ -11,6 +11,9 @@
  * |
  * |
  * v y = 240
+ *
+ * Green = 2016
+ * Red = 63488
  */
 
 void levelOne()
@@ -27,8 +30,7 @@ void levelOne()
 	GUI_DrawLine(2, 95, 2, 145);
 	GUI_SetColor(COLOR_FINISH);
 	GUI_DrawLine(318, 95, 318, 145);
-	cyhal_system_delay_ms(LEVEL_DELAY);
-	GUI_Clear();
+	//cyhal_system_delay_ms(LEVEL_DELAY);
 }
 
 void levelTwo()
