@@ -1,7 +1,6 @@
 #include "cyhal.h"
 #include "cybsp.h"
 #include "cy_retarget_io.h"
-//#include "cy8ckit_028_tft.h"
 #include "GUI.h"
 #include "define.h"
 
@@ -100,7 +99,6 @@ void draw(int x, int y)
 		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_RED || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_RED)
 		{
 			gameOver();
-			exit(0);
 		}
 	}
 	game = false;
