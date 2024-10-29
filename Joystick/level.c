@@ -114,3 +114,12 @@ void gameOver()
 	GUI_SetFont(GUI_FONT_32B_ASCII);
 	GUI_DispStringAt("GAME OVER!!!", 100, 10);
 }
+
+void gameCompleted()
+{
+	GUI_Clear();
+	GUI_SetColor(COLOR_LEVEL);
+	GUI_SetFont(GUI_FONT_32B_ASCII);
+	GUI_DispStringAt("LEVEL completed!!!", 100, 10);
+
+}

@@ -4,7 +4,7 @@
 #include "cy8ckit_028_tft.h"
 #include "GUI.h"
 
-#define CIRCLE_SIZE 10
+#define CIRCLE_SIZE 5
 #define COLOR_GREEN 2016
 #define COLOR_RED 63488
 
@@ -14,6 +14,7 @@ void levelTwo();
 void levelThree();
 void levelFour();
 void gameOver();
+void gameCompleted();
 
 //Include from adc.c
 void init_adc(void);
@@ -63,7 +64,7 @@ int main(void)
 	levelThree();
 	draw(20, 50);
 	levelFour();
-	draw(20, 42);
+	draw(20, 22);
 
 	for (;;){}
 }
@@ -118,7 +119,6 @@ void draw(int x, int y)
 		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_GREEN || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_GREEN || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_GREEN || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_GREEN)
 		{
 			game = true;
-			printf("Done level\r\n");
 			cyhal_system_delay_ms(2000);
 		}
 		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_RED || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_RED)
