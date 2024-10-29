@@ -75,8 +75,6 @@ void levelThree()
 	GUI_DrawLine(0, 210, 320, 210);
 	GUI_SetColor(COLOR_FINISH);
 	GUI_DrawLine(318, 170, 318, 210);
-	cyhal_system_delay_ms(LEVEL_DELAY);
-	GUI_Clear();
 }
 
 void levelFour()
@@ -107,8 +105,6 @@ void levelFour()
 	GUI_AA_DrawLine(2, 238, 290, 238);
 	GUI_SetColor(COLOR_FINISH);
 	GUI_DrawLine(2, 202, 2, 238);
-	cyhal_system_delay_ms(LEVEL_DELAY);
-	GUI_Clear();
 }
 
 void gameOver()
