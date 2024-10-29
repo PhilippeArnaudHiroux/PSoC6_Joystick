@@ -5,7 +5,8 @@
 #include "GUI.h"
 #include "define.h"
 
-//Include from level.c
+//Include from tft.c
+void tftInit();
 void levelOne();
 void levelTwo();
 void levelThree();
@@ -21,22 +22,6 @@ int y_value(void);
 void draw(int x, int y);
 int game = false;
 
-const mtb_st7789v_pins_t tft_pins =
-{
-	.db08 = CY8CKIT_028_TFT_PIN_DISPLAY_DB8,
-	.db09 = CY8CKIT_028_TFT_PIN_DISPLAY_DB9,
-	.db10 = CY8CKIT_028_TFT_PIN_DISPLAY_DB10,
-	.db11 = CY8CKIT_028_TFT_PIN_DISPLAY_DB11,
-	.db12 = CY8CKIT_028_TFT_PIN_DISPLAY_DB12,
-	.db13 = CY8CKIT_028_TFT_PIN_DISPLAY_DB13,
-	.db14 = CY8CKIT_028_TFT_PIN_DISPLAY_DB14,
-	.db15 = CY8CKIT_028_TFT_PIN_DISPLAY_DB15,
-	.nrd = CY8CKIT_028_TFT_PIN_DISPLAY_NRD,
-	.nwr = CY8CKIT_028_TFT_PIN_DISPLAY_NWR,
-	.dc = CY8CKIT_028_TFT_PIN_DISPLAY_DC,
-	.rst = CY8CKIT_028_TFT_PIN_DISPLAY_RST
-};
-
 int main(void)
 {
     cybsp_init();
@@ -46,9 +31,7 @@ int main(void)
 	printf("\x1b[2J\x1b[;H");
 	printf("Joystick\r\n");
 	init_adc();
-
-	mtb_st7789v_init8(&tft_pins);
-	GUI_Init();
+	tftInit();
 
 	levelOne();
 	draw(20, 120);
