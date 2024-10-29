@@ -1,10 +1,11 @@
 #include "cyhal.h"
 #include "GUI.h"
+#include "define.h"
 
-#define LEVEL_DELAY		3000
-#define COLOR_FINISH	GUI_GREEN
-#define COLOR_LEVEL		GUI_BLUE
-#define COLOR_WALL		GUI_RED
+//#define LEVEL_DELAY		3000
+//#define COLOR_FINISH	GUI_GREEN
+//#define COLOR_LEVEL		GUI_BLUE
+//#define COLOR_WALL		GUI_RED
 //x = 320 - y = 240
 /*
  * |------> x = 320

@@ -3,10 +3,7 @@
 #include "cy_retarget_io.h"
 #include "cy8ckit_028_tft.h"
 #include "GUI.h"
-
-#define CIRCLE_SIZE 5
-#define COLOR_GREEN 2016
-#define COLOR_RED 63488
+#include "define.h"
 
 //Include from level.c
 void levelOne();
@@ -22,10 +19,6 @@ int x_value(void);
 int y_value(void);
 
 void draw(int x, int y);
-/*
-int x = 100;
-int y = 100;
-*/
 int game = false;
 
 const mtb_st7789v_pins_t tft_pins =
