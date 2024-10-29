@@ -2,21 +2,6 @@
 #include "GUI.h"
 #include "define.h"
 
-//#define LEVEL_DELAY		3000
-//#define COLOR_FINISH	GUI_GREEN
-//#define COLOR_LEVEL		GUI_BLUE
-//#define COLOR_WALL		GUI_RED
-//x = 320 - y = 240
-/*
- * |------> x = 320
- * |
- * |
- * v y = 240
- *
- * Green = 2016
- * Red = 63488
- */
-
 void levelOne()
 {
 	GUI_Clear();
@@ -122,5 +107,4 @@ void gameCompleted()
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
 	GUI_DispStringAt("LEVEL completed!!!", 100, 10);
-
 }
