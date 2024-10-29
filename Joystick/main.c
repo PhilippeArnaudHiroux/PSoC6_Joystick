@@ -1,7 +1,7 @@
 #include "cyhal.h"
 #include "cybsp.h"
 #include "cy_retarget_io.h"
-#include "cy8ckit_028_tft.h"
+//#include "cy8ckit_028_tft.h"
 #include "GUI.h"
 #include "define.h"
 

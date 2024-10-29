@@ -2,7 +2,6 @@
 #include "GUI.h"
 #include "define.h"
 #include "cy8ckit_028_tft.h"
-#include "GUI.h"
 
 const mtb_st7789v_pins_t tft_pins =
 {
