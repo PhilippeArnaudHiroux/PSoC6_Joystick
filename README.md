@@ -8,7 +8,7 @@ The game consists of different levels. You have to complete a course with the jo
 * The function `GUI_DrawArc()` from the GUI.h library does not allow to draw an arc if the starting grade is greater than the ending grade.
 * ADC using HAL only works on the pre definded analog pins.
 * When configure ADC in PDL you canot use `cy8ckit_028_tft_init (NULL, NULL, NULL, NULL);` anymore.
-Instead you can use the struct below and the fucntion `mtb_st7789v_init8(&tft_pins);`.
+Instead you can use the struct below and the fucntion `mtb_st7789v_init8(&tft_pins);`. This function only initializes the pins to control the display. The light sensor, motion sensor, audio, ... can not be used with this function.
 ```c
 const mtb_st7789v_pins_t tft_pins =
 {
