@@ -1,9 +1,8 @@
 #include "cyhal.h"
 #include "cybsp.h"
-#include "cy_retarget_io.h"
 
 int32_t adc_x;
-int32_t adc_y; // Output voor het tweede kanaal
+int32_t adc_y;
 
 void init_adc(void)
 {
