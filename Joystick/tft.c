@@ -121,7 +121,8 @@ void gameOver()
 	GUI_Clear();
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
-	GUI_DispStringAt("GAME OVER!!!", 100, 10);
+	GUI_DispStringAt("GAME OVER!!!", 80, 10);
+	cyhal_system_delay_ms(LEVEL_DELAY);;
 }
 
 void gameCompleted()
@@ -129,5 +130,6 @@ void gameCompleted()
 	GUI_Clear();
 	GUI_SetColor(COLOR_LEVEL);
 	GUI_SetFont(GUI_FONT_32B_ASCII);
-	GUI_DispStringAt("LEVEL completed!!!", 100, 10);
+	GUI_DispStringAt("LEVEL completed!!!", 40, 10);
+	cyhal_system_delay_ms(LEVEL_DELAY);
 }

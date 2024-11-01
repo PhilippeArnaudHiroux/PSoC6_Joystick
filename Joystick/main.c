@@ -20,6 +20,7 @@ int y_value(void);
 
 void draw(int x, int y);
 int game = false;
+int statement = 0;
 
 int main(void)
 {
@@ -31,7 +32,7 @@ int main(void)
 	printf("Joystick\r\n");
 	init_adc();
 	tftInit();
-
+/*
 	levelOne();
 	draw(20, 120);
 	levelTwo();
@@ -40,8 +41,32 @@ int main(void)
 	draw(20, 50);
 	levelFour();
 	draw(20, 22);
-
-	for (;;){}
+*/
+	for (;;)
+	{
+		switch(statement)
+		{
+			case 0:
+				levelOne();
+				draw(20, 120);
+				break;
+			case 1:
+				levelTwo();
+				draw(20, 50);
+				break;
+			case 2:
+				levelThree();
+				draw(20, 50);
+				break;
+			case 3:
+				levelFour();
+				draw(20, 22);
+				break;
+			default:
+				statement = 0;
+				break;
+		}
+	}
 }
 
 void draw(int x, int y)
@@ -93,12 +118,16 @@ void draw(int x, int y)
 
 		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_GREEN || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_GREEN || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_GREEN || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_GREEN)
 		{
+			gameCompleted();
 			game = true;
 			cyhal_system_delay_ms(2000);
+			statement++;
 		}
 		if(GUI_GetPixelIndex(x+(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x-(CIRCLE_SIZE+1), y) == COLOR_RED || GUI_GetPixelIndex(x, y+(CIRCLE_SIZE+1)) == COLOR_RED || GUI_GetPixelIndex(x, y-(CIRCLE_SIZE+1)) == COLOR_RED)
 		{
 			gameOver();
+			game = true;
+			statement = 0;
 		}
 	}
 	game = false;
