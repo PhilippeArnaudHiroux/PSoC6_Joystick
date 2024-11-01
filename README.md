@@ -26,3 +26,13 @@ const mtb_st7789v_pins_t tft_pins =
 	.rst = CY8CKIT_028_TFT_PIN_DISPLAY_RST
 };
 ```
+
+# Source
+## ModusToolbox documentation
+* [HAL](https://infineon.github.io/mtb-hal-cat1/html/group__group__hal__rtc.html)
+* [TFT-display](https://infineon.github.io/display-tft-st7789v/html/index.html)
+
+## Infineon documentation
+* [Modustoolbox level 2](https://github.com/Infineon/training-modustoolbox-level2-psoc)
+* [TFT-display](https://github.com/Infineon/display-tft-st7789v)
+
