@@ -1,5 +1,6 @@
 # PSoC6_Joystick
-This is a project using the PSoC 6 to create a game on the TFT-shield.
+This is a project using the PSoC 6 to create a game on the TFT-shield.</br>
+[Video](https://youtu.be/qmMelWHsCIE)
 
 ## How it works
 The game consists of different levels. You have to complete a course with the joystick. If you touch the red line you go back to level 1. If you touch the green line you go to the next level.
